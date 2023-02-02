@@ -15,7 +15,7 @@ export default function App() {
         <Nav />
         <Header />
         <Routes>
-          <Route path="/" element={<Employees />}></Route>
+          <Route path="/team-allocating-app" element={<Employees />}></Route>
           <Route
             path="/GroupedTeamMembers"
             element={<GroupedTeamMembers />}
