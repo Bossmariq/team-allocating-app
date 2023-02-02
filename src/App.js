@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./Header";
+import Employees from "./Employees";
+import Nav from "./Nav";
+import GroupedTeamMembers from "./GroupedTeamMembers";
+import Footer from "./Footer";
+import Notfound from "./Notfound";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { DataProvider } from "./context/Context";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataProvider>
+      <Router>
+        <Nav />
+        <Header />
+        <Routes>
+          <Route path="/" element={<Employees />}></Route>
+          <Route
+            path="/GroupedTeamMembers"
+            element={<GroupedTeamMembers />}
+          ></Route>
+          <Route path="*" element={<Notfound />}></Route>
+        </Routes>
+        <Footer />
+      </Router>
+    </DataProvider>
   );
 }
-
-export default App;
